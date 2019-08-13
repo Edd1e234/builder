@@ -4,5 +4,9 @@ public class Main {
 
         Lot lots = new Lot();
         lots.write();
+
+        if (lots.setSizePrice("This is the price", 45)) {
+            System.out.println("Super small");
+        }
     }
 }
