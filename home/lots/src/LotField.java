@@ -16,30 +16,33 @@ public class LotField {
         LARGE, MEDIUM, SMALL, SUPER_LARGE, SUPER_SMALL
     }
     Size Size;
-    private String fieldName = "";
-    private double fieldID;
+    private String fieldName;
+    private final double fieldID = Math.random();
     private int sqf;
-    private int averageValuePerSqf = 20;
-    private int sqfPrice = 0;
-    private int superSmall = 50;
-    private int small = 50;
-    private int medium = 50;
-    private int large = 50;
-    private int superLarge = 50;
+    private int averageValuePerSqf;
+    private int sqfPrice;
+    private int superSmall;
+    private int small;
+    private int medium;
+    private int large;
+    private int superLarge;
 
     // The amount of money the lot would cost.
     private int ActualValue;
 
     // Default Constructor.
     public LotField () {
-        fieldID = Math.random();
         fieldName = "Basic";
     }
 
     // Adding a new field. The field name is meant to be as a placeholder.
     public LotField(String fieldName, int index) {
-        fieldID = Math.random();
         this.fieldName = fieldName + index;
+    }
+
+    // Main Constructor.
+    public LotField(String fieldName) {
+        this.fieldName = fieldName;
     }
 
     /**
@@ -83,39 +86,23 @@ public class LotField {
      * value did not match. This is also true if price is a negative number.
      */
     public Status setSizePrice(Size size, int price){
-        switch (size){
-            case SUPER_SMALL:
-                return setSizePrice("super small", price);
-            case SMALL:
-                return setSizePrice("small", price);
-            case MEDIUM:
-                return setSizePrice("medium", price);
-            case LARGE:
-                return setSizePrice("large", price);
-            case SUPER_LARGE:
-                return setSizePrice("super large", price);
-            default:
-                return StatusMessage.InvalidArgumentError();
-        }
-    }
-    public int getSizePrice(Size size) {
-        switch (size){
-            case SUPER_SMALL:
-                return getSizePrice("super small");
-            case SMALL:
-                return getSizePrice("small");
-            case MEDIUM:
-                return getSizePrice("medium");
-            case LARGE:
-                return getSizePrice("large");
-            case SUPER_LARGE:
-                return getSizePrice("super large");
-            default:
-                return -1;
-        }
+        return setSizePrice(LotUtil.StringToSize(size), price);
     }
 
-    // (TODO/Edd1e234): Refactor these methods.
+    /**
+     * Gets the desired price.
+     * @param size based of class enum, desired size.
+     * @return
+     */
+    public int getSizePrice(Size size) {
+        return getSizePrice(LotUtil.StringToSize(size));
+    }
+
+    /**
+     * Gets the desired price of the given price.
+     * @param size the desired price.
+     * @return the price.
+     */
     public int getSizePrice(String size) {
         if (size.equalsIgnoreCase("super small")) {
             return superSmall;
@@ -136,6 +123,10 @@ public class LotField {
             return 0;
         }
     }
+
+    /**
+     * @return Field ID.
+     */
     public double getFieldID() {
         return fieldID;
     }

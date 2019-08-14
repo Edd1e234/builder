@@ -46,8 +46,10 @@ public class Lot {
         return StatusMessage.okStatus();
     }
 
-    public Status AddField(String FieldName) {
-
+    public Status AddField(String fieldName) {
+        LotField lot = new LotField(fieldName);
+        lotFields.add(lot);
+        return StatusMessage.okStatus();
     }
 
     public void write() {

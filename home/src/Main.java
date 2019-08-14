@@ -8,10 +8,7 @@ public class Main {
         LotField lotField = new LotField();
 
         Lot lot = new Lot();
-
         Status status = lot.setField(0, "afasdf", 0);
-
         System.out.println(status.isok() + " " + status.getMessage());
-
     }
 }
