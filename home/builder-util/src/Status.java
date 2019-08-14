@@ -8,7 +8,7 @@ public class Status {
     public void setMessage(String message) {
         this.message = message;
     }
-    public  boolean isok () {
+    public  boolean isOk () {
         return status;
     }
     public  String getMessage() {

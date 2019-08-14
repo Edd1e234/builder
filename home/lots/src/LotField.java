@@ -18,9 +18,8 @@ public class LotField {
     Size Size;
     private String fieldName;
     private final double fieldID = Math.random();
+    private double sqfPrice;
     private int sqf;
-    private int averageValuePerSqf;
-    private int sqfPrice;
     private int superSmall;
     private int small;
     private int medium;
@@ -54,15 +53,12 @@ public class LotField {
      * value did not match. This is also true if price is a negative number.
      */
     public Status setSizePrice(String size, int price) {
-        if (price < 0) {
-            return StatusMessage.InvalidArgumentError("Price is negative.");
-        }
-        if (price == 0) {
-            return StatusMessage.InvalidArgumentError("Price cannot be 0.");
+        Status status = LotUtil.valueCheck(price);
+        if (!status.isOk()) {
+            return status;
         }
         if (size.equalsIgnoreCase("super small")) {
             this.superSmall = price;
-
         } else if (size.equalsIgnoreCase("small")) {
             this.small = price;
         } else if (size.equalsIgnoreCase("medium")) {
@@ -74,7 +70,7 @@ public class LotField {
         }else {
             return StatusMessage.InvalidArgumentError("Not a valid string");
         }
-        return StatusMessage.okStatus();
+        return status;
     }
 
     /**
@@ -86,16 +82,50 @@ public class LotField {
      * value did not match. This is also true if price is a negative number.
      */
     public Status setSizePrice(Size size, int price){
-        return setSizePrice(LotUtil.StringToSize(size), price);
+        return setSizePrice(LotUtil.stringToSize(size), price);
     }
 
+    /**
+     * Sets sqf.
+     * @param sqf Desired Sqf.
+     * @return Status.
+     */
+    public Status setSqf(int sqf) {
+        Status status = LotUtil.valueCheck(sqf);
+        if (!status.isOk()) {
+            return status;
+        }
+        this.sqf = sqf;
+        return status;
+    }
+
+    /**
+     * Will set price of sqf.
+     * @param price the actual price.
+     * @return Status.
+     */
+    public Status setSqfPrice(double price) {
+        Status status = LotUtil.valueCheck(price);
+        if (!status.isOk()) {
+            this.sqfPrice = price;
+        }
+        return status;
+    }
+
+    public int getSqf() {
+        return sqf;
+    }
+
+    public double SqfPrice() {
+        return sqfPrice;
+    }
     /**
      * Gets the desired price.
      * @param size based of class enum, desired size.
      * @return
      */
     public int getSizePrice(Size size) {
-        return getSizePrice(LotUtil.StringToSize(size));
+        return getSizePrice(LotUtil.stringToSize(size));
     }
 
     /**
@@ -130,6 +160,10 @@ public class LotField {
     public double getFieldID() {
         return fieldID;
     }
+
+    /**
+     * @return FieldName of class.
+     */
     public String getFieldName() {return fieldName;}
     public void write() {
         System.out.println("This Works");
