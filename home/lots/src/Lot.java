@@ -9,6 +9,7 @@
 
 import java.util.ArrayList;
 
+
 public class Lot {
     private ArrayList<LotField> lotFields = new ArrayList<LotField>();
 
@@ -23,12 +24,30 @@ public class Lot {
         return lotFields;
     }
 
-    public boolean setField(int index, String size, int price) {
+    /**
+     * Will set fields of an already existing lot field type.
+     *
+     * @param index Which lot field to be edited.
+     * @param size Should only be 'super small' to 'super Large'.
+     * @param price The price to set.
+     * @return Status on the success of the operation.
+     */
+    public Status setField(int index, String size, int price) {
         if (index > lotFields.size()) {
-            return false;
-        }
 
-        return true;
+            return StatusMessage.InvalidArgumentError("Index is greater than array size.");
+        }
+        return lotFields.get(index).setSizePrice(size, price);
+    }
+
+    public Status AddField() {
+        LotField lot = new LotField("New Field",  lotFields.size());
+        lotFields.add(lot);
+        return StatusMessage.okStatus();
+    }
+
+    public Status AddField(String FieldName) {
+
     }
 
     public void write() {

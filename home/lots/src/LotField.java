@@ -36,6 +36,12 @@ public class LotField {
         fieldName = "Basic";
     }
 
+    // Adding a new field. The field name is meant to be as a placeholder.
+    public LotField(String fieldName, int index) {
+        fieldID = Math.random();
+        this.fieldName = fieldName + index;
+    }
+
     /**
      * Meant as a util function, will set a default value to map when using either 'SuperSmall', 'Small',
      * 'medium', etc...
@@ -44,36 +50,30 @@ public class LotField {
      * @return Will return true if the new price has been set, else will return false if the string
      * value did not match. This is also true if price is a negative number.
      */
-    public boolean setSizePrice(String size, int price) {
+    public Status setSizePrice(String size, int price) {
         if (price < 0) {
-            System.out.println("Cannot be a negative value.");
+            return StatusMessage.InvalidArgumentError("Price is negative.");
         }
         if (price == 0) {
-            System.out.println("Cannot be 0.");
+            return StatusMessage.InvalidArgumentError("Price cannot be 0.");
         }
         if (size.equalsIgnoreCase("super small")) {
             this.superSmall = price;
-            return true;
-        }
-        if (size.equalsIgnoreCase("small")) {
+
+        } else if (size.equalsIgnoreCase("small")) {
             this.small = price;
-            return true;
-        }
-        if (size.equalsIgnoreCase("medium")) {
+        } else if (size.equalsIgnoreCase("medium")) {
             this.medium = price;
-            return true;
-        }
-        if (size.equalsIgnoreCase("large")) {
+        } else if (size.equalsIgnoreCase("large")) {
             this.large = price;
-            return true;
-        }
-        if (size.equalsIgnoreCase("super large")) {
+        } else if (size.equalsIgnoreCase("super large")) {
             this.superLarge = price;
-            return true;
+        }else {
+            return StatusMessage.InvalidArgumentError("Not a valid string");
         }
-        System.out.println("Error, no matching string");
-        return false;
+        return StatusMessage.okStatus();
     }
+
     /**
      * Meant as a util function, will set a default value to map when using either 'SuperSmall', 'Small',
      * 'medium', etc...
@@ -82,7 +82,7 @@ public class LotField {
      * @return Will return true if the new price has been set, else will return false if the string
      * value did not match. This is also true if price is a negative number.
      */
-    public boolean setSizePrice(Size size, int price){
+    public Status setSizePrice(Size size, int price){
         switch (size){
             case SUPER_SMALL:
                 return setSizePrice("super small", price);
@@ -95,7 +95,7 @@ public class LotField {
             case SUPER_LARGE:
                 return setSizePrice("super large", price);
             default:
-                return false;
+                return StatusMessage.InvalidArgumentError();
         }
     }
     public int getSizePrice(Size size) {
@@ -111,7 +111,7 @@ public class LotField {
             case SUPER_LARGE:
                 return getSizePrice("super large");
             default:
-                return 0;
+                return -1;
         }
     }
 

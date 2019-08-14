@@ -1,15 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.print("Hello");
+        System.out.println("Main Works");
 
         LotField lotField = new LotField();
-        lotField.write();
-
-        if (lotField.setSizePrice("This is the price", 45)) {
-            System.out.println("Super small");
-        }
 
         Lot lot = new Lot();
-        lot.write();
+
+        Status status = lot.setField(0, "afasdf", 0);
+
+        System.out.println(status.isok() + " " + status.getMessage());
+
     }
 }
