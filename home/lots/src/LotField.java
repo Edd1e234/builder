@@ -10,8 +10,8 @@ import java.util.*;
 import java.lang.*;
 
 public class LotField {
-    // Size of the lot in general, size could be super small,
-    // small, medium, large, super large.
+
+    // General size of the lot.
     public enum Size {
         LARGE, MEDIUM, SMALL, SUPER_LARGE, SUPER_SMALL
     }
@@ -98,51 +98,48 @@ public class LotField {
                 return false;
         }
     }
-    public int GetSizePrice(Size size) {
+    public int getSizePrice(Size size) {
         switch (size){
             case SUPER_SMALL:
-                return GetSizePrice("super small");
+                return getSizePrice("super small");
             case SMALL:
-                return GetSizePrice("small");
+                return getSizePrice("small");
             case MEDIUM:
-                return GetSizePrice("medium");
+                return getSizePrice("medium");
             case LARGE:
-                return GetSizePrice("large");
+                return getSizePrice("large");
             case SUPER_LARGE:
-                return GetSizePrice("super large");
+                return getSizePrice("super large");
             default:
                 return 0;
         }
     }
 
     // (TODO/Edd1e234): Refactor these methods.
-    public int GetSizePrice(String size) {
+    public int getSizePrice(String size) {
         if (size.equalsIgnoreCase("super small")) {
-            ActualValue += superSmall;
+            return superSmall;
         }
         if (size.equalsIgnoreCase("small")) {
-            ActualValue += small;
+            return small;
         }
         if (size.equalsIgnoreCase("medium")) {
-            ActualValue += medium;
+            return medium;
         }
         if (size.equalsIgnoreCase("large")) {
-            ActualValue += large;
+            return large;
         }
         if (size.equalsIgnoreCase("super Large")) {
-            ActualValue += superLarge;
+            return superLarge;
         } else {
             System.out.println("Incorrect input");
             return 0;
         }
-
-        // Total value of the entire lot.
-        return ActualValue;
     }
     public double getFieldID() {
         return fieldID;
     }
-    public String
+    public String getFieldName() {return fieldName;}
     public void write() {
         System.out.println("This Works");
     }

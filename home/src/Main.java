@@ -8,8 +8,8 @@ public class Main {
         if (lotField.setSizePrice("This is the price", 45)) {
             System.out.println("Super small");
         }
+
+        Lot lot = new Lot();
+        lot.write();
     }
-
-    Lot lot = new Lot();
-
 }
