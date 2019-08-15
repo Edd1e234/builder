@@ -1,3 +1,5 @@
+package estimate.builder.Backend;
+
 /**
  * Place holder for all lot types. Basic, Lower Valley, etc...
  * Will be used to communicate with frontend.
@@ -6,6 +8,9 @@
  * @Version 1.0
  * @since 2019-8-14
  */
+
+import estimate.builder.util.Status;
+import estimate.builder.util.StatusMessage;
 
 import java.util.ArrayList;
 

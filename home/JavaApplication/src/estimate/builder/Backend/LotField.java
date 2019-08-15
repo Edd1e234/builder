@@ -1,3 +1,5 @@
+package estimate.builder.Backend;
+
 /**
  * Field type for Lot. Will do all calculations pertaining to a lot field.
  *
@@ -5,6 +7,9 @@
  * @Version 1.0
  * @since 2019-8-13
  */
+
+import estimate.builder.util.Status;
+import estimate.builder.util.StatusMessage;
 
 import java.util.*;
 import java.lang.*;
@@ -172,10 +177,10 @@ public class LotField {
 
     public String toString(){
         return "Field Name: " + fieldName + "\n" + "ID: " + fieldID + "\n" + "SQF: " + sqf  + "\n" + "SQF Price: " +
-                    sqfTotalPrice + "\n" + "Price per SQF: " + sqfPrice + "\n" + "Super Small: " + superSmall + "\n" +
-                        "Small: " + small + "\n" + "Medium: " + medium + "\n" + "Large: " + large + "\n" +
-                            "Super Large: " + superLarge + "\nNote: If some values are 0 then it may have not been" +
-                                " initialized.\n";
+                sqfTotalPrice + "\n" + "Price per SQF: " + sqfPrice + "\n" + "Super Small: " + superSmall + "\n" +
+                "Small: " + small + "\n" + "Medium: " + medium + "\n" + "Large: " + large + "\n" +
+                "Super Large: " + superLarge + "\nNote: If some values are 0 then it may have not been" +
+                " initialized.\n";
     }
 
     /**

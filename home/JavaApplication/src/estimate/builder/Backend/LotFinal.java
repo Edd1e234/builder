@@ -1,3 +1,5 @@
+package estimate.builder.Backend;
+
 public class LotFinal {
     // Actual address of lot.
     private String address;

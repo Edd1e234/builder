@@ -1,4 +1,5 @@
-package com.builder.frontend.window;
+package estimate.builder.frontend.scenes;
+
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
