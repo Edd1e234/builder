@@ -19,15 +19,16 @@ public class LotField {
     private String fieldName;
     private final double fieldID = Math.random();
     private double sqfPrice;
+    private double sqfTotalPrice;
     private int sqf;
-    private int superSmall;
-    private int small;
-    private int medium;
-    private int large;
-    private int superLarge;
+    private double superSmall;
+    private double small;
+    private double medium;
+    private double large;
+    private double superLarge;
 
     // The amount of money the lot would cost.
-    private int ActualValue;
+    private double lotPrice;
 
     // Default Constructor.
     public LotField () {
@@ -124,7 +125,7 @@ public class LotField {
      * @param size based of class enum, desired size.
      * @return
      */
-    public int getSizePrice(Size size) {
+    public double getSizePrice(Size size) {
         return getSizePrice(LotUtil.stringToSize(size));
     }
 
@@ -133,7 +134,7 @@ public class LotField {
      * @param size the desired price.
      * @return the price.
      */
-    public int getSizePrice(String size) {
+    public double getSizePrice(String size) {
         if (size.equalsIgnoreCase("super small")) {
             return superSmall;
         }
@@ -167,5 +168,50 @@ public class LotField {
     public String getFieldName() {return fieldName;}
     public void write() {
         System.out.println("This Works");
+    }
+
+    public String toString(){
+        return "Field Name: " + fieldName + "\n" + "ID: " + fieldID + "\n" + "SQF: " + sqf  + "\n" + "SQF Price: " +
+                    sqfTotalPrice + "\n" + "Price per SQF: " + sqfPrice + "\n" + "Super Small: " + superSmall + "\n" +
+                        "Small: " + small + "\n" + "Medium: " + medium + "\n" + "Large: " + large + "\n" +
+                            "Super Large: " + superLarge + "\nNote: If some values are 0 then it may have not been" +
+                            " initialized.";
+    }
+
+    /**
+     * TODO(Edd1e234): Look into refactoring this function to use StatusOr<Int>.
+     *
+     * Functions below all do the same thing. Each will use result as an output parameter. 'result' contains the full
+     * price.
+     * @param result
+     * @return
+     */
+    public Status getFullLotPrice(double result) {
+        if (sqf != 0 && sqfPrice != 0) {
+            sqfTotalPrice = ((double) sqf) * sqfPrice;
+            result = sqfTotalPrice;
+            return StatusMessage.okStatus();
+        }
+        return StatusMessage.InvalidArgumentError("Sqf or SqfPrice is not initialized.");
+    }
+
+    public Status getFullLotPrice(int sqf, double result) {
+        Status status = setSqf(sqf);
+
+        if (!status.isOk()) {
+            return status;
+        }
+        return getFullLotPrice(result);
+    }
+
+    public  Status getFullLotPrice(String size, double result) {
+        double sizePrice = getSizePrice(size);
+        Status status = LotUtil.valueCheck(sizePrice);
+
+        if (!status.isOk()) {
+            return status;
+        }
+        result = sizePrice;
+        return status;
     }
 }
