@@ -1,5 +1,5 @@
 /**
- * Field type for Lot.
+ * Field type for Lot. Will do all calculations pertaining to a lot field.
  *
  * @author Owner Edd1e234
  * @Version 1.0
@@ -175,7 +175,7 @@ public class LotField {
                     sqfTotalPrice + "\n" + "Price per SQF: " + sqfPrice + "\n" + "Super Small: " + superSmall + "\n" +
                         "Small: " + small + "\n" + "Medium: " + medium + "\n" + "Large: " + large + "\n" +
                             "Super Large: " + superLarge + "\nNote: If some values are 0 then it may have not been" +
-                            " initialized.";
+                                " initialized.\n";
     }
 
     /**
