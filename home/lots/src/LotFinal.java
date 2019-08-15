@@ -21,7 +21,7 @@ public class LotFinal {
     }
 
     public double getLOT_ID() {
-        return LOT_ID; 
+        return LOT_ID;
     }
 
 }
