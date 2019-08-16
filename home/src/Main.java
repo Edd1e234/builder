@@ -1,3 +1,7 @@
+import estimate.builder.Backend.Lot;
+import estimate.builder.Backend.LotField;
+import estimate.builder.util.Status;
+
 import java.util.ArrayList;
 import java.util.List;
 

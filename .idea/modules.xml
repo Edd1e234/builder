@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/home/JavaApplication/JavaApplication.iml" filepath="$PROJECT_DIR$/home/JavaApplication/JavaApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/home/frontend/Window/Window.iml" filepath="$PROJECT_DIR$/home/frontend/Window/Window.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/builder.iml" filepath="$PROJECT_DIR$/.idea/builder.iml" />
-      <module fileurl="file://$PROJECT_DIR$/home/builder-util/builder-util.iml" filepath="$PROJECT_DIR$/home/builder-util/builder-util.iml" />
-      <module fileurl="file://$PROJECT_DIR$/home/frontend/frontend.iml" filepath="$PROJECT_DIR$/home/frontend/frontend.iml" />
     </modules>
   </component>
 </project>

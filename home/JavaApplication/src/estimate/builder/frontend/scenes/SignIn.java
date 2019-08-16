@@ -1,7 +1,10 @@
 package estimate.builder.frontend.scenes;
 
 
+import estimate.builder.Backend.data.IconData;
+import estimate.builder.Backend.data.IconDataUtil;
 import estimate.builder.util.Status;
+import estimate.builder.util.StatusMessage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,11 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
-public class SignIn {
+class SignIn {
 
-    static Scene getSignInPage(Stage window) {
+     static Scene displaySignIn(DataWrapper window) {
+         window.getWindow().setTitle("Sign In");
         GridPane gridPane = new GridPane();
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setHgap(10);
@@ -40,16 +43,30 @@ public class SignIn {
 
         loginButton.setOnAction(actionEvent -> {
             // Credentials here.
-            System.out.println("Input is " + passInput.getText());
-            if (true) {
-                window.setScene(Menu.getMenu(window));
+            IconData userData = new IconData();
+            if (window.getAllData().getData(nameInput.getText(), passInput.getText(), userData).isOk()) {
+                System.out.println(userData.getFirstName());
+                window.getWindow().setScene(Menu.displayMenu(window));
+            } else {
+                System.out.println("Try Again");
             }
+        });
+
+        Button signUpButton = new Button("Sign Up");
+        signUpButton.setOnAction(actionEvent -> {
+            System.out.println("Sign in page");
+
+            window.getWindow().setScene(SignUp.displaySignUp(window));
         });
 
         GridPane.setConstraints(loginButton, 1, 2);
 
-        gridPane.getChildren().addAll(nameLabel, nameInput, passLabel, passInput, loginButton);
+        gridPane.getChildren().addAll(nameLabel, nameInput, passLabel, passInput, loginButton, signUpButton);
         // Actual Scene.
         return new Scene(gridPane, 300, 200);
     }
+
+//    private static Status Validate(String username, String password, IconData userData) {
+//         return IconDataUtil.getData(username, password, userData);
+//     }
 }
