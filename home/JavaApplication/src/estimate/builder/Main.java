@@ -1,6 +1,6 @@
 package estimate.builder;
 
-import estimate.builder.Backend.Lot;
+import estimate.builder.Backend.EstimateLot;
 import estimate.builder.Backend.LotField;
 import estimate.builder.util.Status;
 
@@ -13,7 +13,7 @@ public class Main {
 
         LotField lotField = new LotField();
 
-        Lot lot = new Lot();
+        EstimateLot lot = new EstimateLot();
         Status status = lot.setField(0, "afasdf", 0);
         System.out.println(status.isOk() + " " + status.getMessage());
 

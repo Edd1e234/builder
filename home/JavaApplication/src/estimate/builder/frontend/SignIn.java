@@ -1,10 +1,7 @@
-package estimate.builder.frontend.scenes;
+package estimate.builder.frontend;
 
 
 import estimate.builder.Backend.data.IconData;
-import estimate.builder.Backend.data.IconDataUtil;
-import estimate.builder.util.Status;
-import estimate.builder.util.StatusMessage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

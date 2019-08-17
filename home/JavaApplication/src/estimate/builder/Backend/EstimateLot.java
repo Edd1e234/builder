@@ -14,12 +14,12 @@ import estimate.builder.util.StatusMessage;
 
 import java.util.ArrayList;
 
-public class Lot {
+public class EstimateLot {
     private ArrayList<LotField> lotFields = new ArrayList<LotField>();
 
     // Will make a basic lot for the user to set.
-    public Lot() {
-        LotField basicLot = new LotField();
+    public EstimateLot() {
+        LotField basicLot = new LotField("Basic");
         lotFields.add(basicLot);
     }
 
@@ -78,7 +78,7 @@ public class Lot {
      * Adds new LotFields.
      * @return Status.
      */
-    public Status AddField() {
+    public Status addField() {
         LotField lot = new LotField("New Field",  lotFields.size());
         lotFields.add(lot);
         return StatusMessage.okStatus();
@@ -89,8 +89,18 @@ public class Lot {
      * @param fieldName Lot name.
      * @return
      */
-    public Status AddField(String fieldName) {
-        LotField lot = new LotField(fieldName);
+    public Status addField(String fieldName) {
+        LotField lot = new LotField(fieldName, lotFields.size());
+        lotFields.add(lot);
+        return StatusMessage.okStatus();
+    }
+
+    /**
+     *
+     * @param lot
+     * @return
+     */
+    public Status addField(LotField lot) {
         lotFields.add(lot);
         return StatusMessage.okStatus();
     }

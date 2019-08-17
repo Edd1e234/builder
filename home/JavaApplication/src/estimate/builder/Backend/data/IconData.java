@@ -1,5 +1,7 @@
 package estimate.builder.Backend.data;
 
+import estimate.builder.Backend.Estimate;
+
 import java.util.ArrayList;
 
 /**
@@ -12,8 +14,20 @@ public class IconData {
     private String firstName;
     private String lastName;
 
+    // Contains all estimate data.
+    private Estimate estimate = new Estimate();
+
+    public Estimate getEstimate() {
+        return estimate;
+    }
+
+    public void setEstimate(Estimate estimate) {
+        this.estimate = estimate;
+    }
+
     @Override
     public String toString() {
+
         return "IconData{" +
                 "email=" + email +
                 ", username='" + username + '\'' +
@@ -21,7 +35,7 @@ public class IconData {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", index=" + index +
-                '}' + "\n";
+                '}' + estimate.toString();
     }
 
     private int index;

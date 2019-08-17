@@ -1,11 +1,8 @@
-package estimate.builder.frontend.scenes;
+package estimate.builder.frontend;
 
 import estimate.builder.Backend.data.IconData;
-import estimate.builder.Backend.data.IconDataUtil;
 import estimate.builder.util.Status;
 import estimate.builder.util.StatusMessage;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Window;
 
 import java.util.ArrayList;
 
@@ -95,7 +91,7 @@ public class SignUp {
      *
      * Creates the new account.
      *
-     * @param window
+     * @param window Window contains the actual data.
      * @param textFields
      * @return
      */

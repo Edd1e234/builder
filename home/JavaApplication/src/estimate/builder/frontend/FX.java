@@ -1,4 +1,4 @@
-package estimate.builder.frontend.scenes;
+package estimate.builder.frontend;
 
 
 import estimate.builder.Backend.data.IconData;

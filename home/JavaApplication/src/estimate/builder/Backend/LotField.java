@@ -50,6 +50,11 @@ public class LotField {
         this.fieldName = fieldName;
     }
 
+    // Used to reset fieldName, field name should be set upon initialization.
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
     /**
      * Meant as a util function, will set a default value to map when using either 'SuperSmall', 'Small',
      * 'medium', etc...
