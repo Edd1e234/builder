@@ -1,3 +1,5 @@
+package builder;
+
 import builder.Backend.EstimateLot;
 import builder.Backend.LotField;
 import builder.util.Status;
@@ -17,4 +19,3 @@ public class Main {
         StringBuilder stringBuilder = new StringBuilder();
     }
 }
-
