@@ -17,6 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SignIn implements Initializable {
+    // This window will contain all the data.
     private DataWrapper window;
     @FXML
     private TextField username, password;

@@ -65,6 +65,9 @@ public class IconDataUtil {
     public void setEddieData(IconData eddieData) {
         System.out.println("Eddie Data set");
 
+        eddieData.setUsername("eddie");
+        eddieData.setPassword("eddie");
+
         EstimateLot lot = new EstimateLot();
 
         ArrayList<LotField> fields = new ArrayList<>();
