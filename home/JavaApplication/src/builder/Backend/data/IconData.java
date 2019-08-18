@@ -9,10 +9,7 @@ import java.util.ArrayList;
  */
 public class IconData {
     private ArrayList<String> email = new ArrayList<>();
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
+    private String username, password, firstName, lastName;
 
     // Contains all estimate data.
     private Estimate estimate = new Estimate();

@@ -27,7 +27,6 @@ public class IconDataUtil {
      * @return Status, If user is not found then a NotFoundError will be returned.
      */
     public Status getUserData(String username, String password, IconData userData) {
-        System.out.println("Made it to getUserData method");
         for (IconData user : users) {
 
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -61,6 +60,7 @@ public class IconDataUtil {
         return stringBuilder.toString();
     }
 
+    //TODO(Edd1e234): Delete this.
     // Delete this, testing purposes only.
     public void setEddieData(IconData eddieData) {
         System.out.println("Eddie Data set");
@@ -84,7 +84,5 @@ public class IconDataUtil {
 
         // New data is added.
         eddieData.setEstimate(estimate);
-
-        System.out.println(eddieData.toString());
     }
 }

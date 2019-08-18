@@ -6,33 +6,15 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 public class DataWrapper {
-    private Parent root;
-    private Stage window;
     private IconData userData;
     // This cannot be in production.
     private IconDataUtil allData;
 
-
-    public DataWrapper(DataWrapper wrapper) {
-        this.window = wrapper.getWindow();
-
-    }
-
-    public DataWrapper() {
-    }
+    public DataWrapper() {}
 
     public DataWrapper(IconData userData, IconDataUtil allData) {
         this.userData = userData;
         this.allData = allData;
-    }
-
-
-    public Parent getRoot() {
-        return root;
-    }
-
-    public void setRoot(Parent root) {
-        this.root = root;
     }
 
     public IconData getUserData() {
@@ -44,19 +26,10 @@ public class DataWrapper {
     }
 
     public IconDataUtil getAllData() {
-        System.out.println("Got Into this method");
         return allData;
     }
 
     public void setAllData(IconDataUtil allData) {
         this.allData = allData;
-    }
-
-    public Stage getWindow() {
-        return window;
-    }
-
-    public void setWindow(Stage window) {
-        this.window = window;
     }
 }

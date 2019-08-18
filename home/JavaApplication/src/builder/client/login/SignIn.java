@@ -30,18 +30,14 @@ public class SignIn implements Initializable {
     }
 
     public void loginButton() {
-
-        System.out.println(username.getText());
-        System.out.println(password.getText());
         System.out.println("Login");
 
         IconData userData = new IconData();
-        System.out.println("ERROR HERE");
-        System.out.println(window);
-        System.out.println("ERROR HERE");
+
         if (window.getAllData()
                 .getUserData(username.getText(), password.getText(), userData).isOk()) {
-            System.out.print("User Approved");
+            System.out.print("User Approved\nUser data:");
+            System.out.println(window.toString());
         } else {
             System.out.print("User Denied");
         }
