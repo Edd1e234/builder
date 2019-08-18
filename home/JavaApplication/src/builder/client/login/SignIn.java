@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -55,7 +54,7 @@ public class SignIn implements Initializable {
         loader.load();
 
         SignUp signUp = loader.getController();
-        signUp.data(window);
+        signUp.setData(window);
 
         Parent root = loader.getRoot();
         Stage stage = new Stage();

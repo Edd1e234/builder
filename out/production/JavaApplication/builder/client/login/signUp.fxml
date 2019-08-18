@@ -10,7 +10,7 @@
     <children>
         <AnchorPane layoutX="146.0" layoutY="38.0" prefHeight="324.0" prefWidth="451.0">
             <children>
-                <TextField fx:id="First" layoutX="127.0" layoutY="52.0" prefHeight="25.0"
+                <TextField fx:id="first" layoutX="127.0" layoutY="52.0" prefHeight="25.0"
                            prefWidth="197.0" promptText="First Name"/>
                 <TextField fx:id="last" layoutX="127.0" layoutY="88.0" prefHeight="25.0"
                            prefWidth="197.0" promptText="Last Name"/>
@@ -32,7 +32,7 @@
                            prefWidth="197.0" promptText="Password"/>
                 <TextField fx:id="email" layoutX="127.0" layoutY="124.0" prefHeight="25.0"
                            prefWidth="197.0" promptText="Email"/>
-                <Button fx:id="signUp" layoutX="157.0" layoutY="278.0" mnemonicParsing="false"
+                <Button onAction="#signUp" fx:id="signUp" layoutX="157.0" layoutY="278.0" mnemonicParsing="false"
                         prefHeight="25.0" prefWidth="132.0" text="Sign Up"/>
             </children>
         </AnchorPane>
