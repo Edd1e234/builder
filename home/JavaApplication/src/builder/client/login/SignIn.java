@@ -49,11 +49,18 @@ public class SignIn implements Initializable {
     }
 
     public void signUpButton(ActionEvent event) throws IOException {
-        Parent signUpPage = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("signUp.fxml"));
 
-        Stage signUpWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        signUpWindow.setScene(new Scene(signUpPage));
+        loader.load();
 
-        signUpWindow.show();
+        SignUp signUp = loader.getController();
+        signUp.data(window);
+
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

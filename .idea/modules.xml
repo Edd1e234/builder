@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/home/JavaApplication/JavaApplication.iml" filepath="$PROJECT_DIR$/home/JavaApplication/JavaApplication.iml" />
-      <module fileurl="file://$PROJECT_DIR$/home/frontend/Window/Window.iml" filepath="$PROJECT_DIR$/home/frontend/Window/Window.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/builder.iml" filepath="$PROJECT_DIR$/.idea/builder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/home/home.iml" filepath="$PROJECT_DIR$/home/home.iml" />
     </modules>
   </component>
 </project>
