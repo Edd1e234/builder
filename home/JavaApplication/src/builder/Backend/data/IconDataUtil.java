@@ -27,7 +27,7 @@ public class IconDataUtil {
      * @return Status, If user is not found then a NotFoundError will be returned.
      */
     public Status getUserData(String username, String password, IconData userData) {
-        System.out.println("Made it here");
+        System.out.println("Made it to getUserData method");
         for (IconData user : users) {
 
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -62,7 +62,7 @@ public class IconDataUtil {
     }
 
     // Delete this, testing purposes only.
-    private void setEddieData(IconData eddieData) {
+    public void setEddieData(IconData eddieData) {
         System.out.println("Eddie Data set");
 
         EstimateLot lot = new EstimateLot();

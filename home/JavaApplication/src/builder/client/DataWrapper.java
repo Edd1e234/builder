@@ -12,11 +12,20 @@ public class DataWrapper {
     // This cannot be in production.
     private IconDataUtil allData;
 
-    public DataWrapper(Stage window, IconData userData, IconDataUtil allData) {
-        this.window = window;
+
+    public DataWrapper(DataWrapper wrapper) {
+        this.window = wrapper.getWindow();
+
+    }
+
+    public DataWrapper() {
+    }
+
+    public DataWrapper(IconData userData, IconDataUtil allData) {
         this.userData = userData;
         this.allData = allData;
     }
+
 
     public Parent getRoot() {
         return root;
