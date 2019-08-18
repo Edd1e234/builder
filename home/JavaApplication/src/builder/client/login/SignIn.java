@@ -3,10 +3,17 @@ package builder.client.login;
 import builder.Backend.data.IconData;
 import builder.Backend.data.IconDataUtil;
 import builder.client.DataWrapper;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,8 +48,12 @@ public class SignIn implements Initializable {
         }
     }
 
-    public void signUpButton() {
-        System.out.println("Sign Up");
-        System.out.println(window);
+    public void signUpButton(ActionEvent event) throws IOException {
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+
+        Stage signUpWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        signUpWindow.setScene(new Scene(signUpPage));
+
+        signUpWindow.show();
     }
 }
