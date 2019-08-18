@@ -39,11 +39,6 @@ public class IconDataUtil {
 
     public void addUser(IconData newUser) {
         newUser.setIndex(users.size());
-
-        if (newUser.getFirstName().equalsIgnoreCase("Eddie")) {
-            setEddieData(newUser);
-        }
-
         users.add(newUser);
     }
 
@@ -87,5 +82,7 @@ public class IconDataUtil {
 
         // New data is added.
         eddieData.setEstimate(estimate);
+
+        addUser(eddieData);
     }
 }

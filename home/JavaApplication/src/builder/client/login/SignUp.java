@@ -4,8 +4,10 @@ import builder.Backend.data.IconData;
 import builder.client.DataWrapper;
 import builder.util.Status;
 import builder.util.StatusMessage;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -22,20 +24,23 @@ public class SignUp {
         this.window = window;
     }
 
-    public void signUp() throws IOException {
+    public void signUp(ActionEvent event) {
         if (saveData().isOk()) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("signIn.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                // TODO(Edd1e234) Error message, CRITICAL ERROR.
+            }
 
-            loader.load();
+            // Using the same scene.
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(loader.getRoot()));
             stage.show();
         }
-        // TODO(Edd1e234): Need to set up a label that sends an error message. 
+        // TODO(Edd1e234): Need to set up a label that sends an error message.
     }
 
     private Status saveData() {

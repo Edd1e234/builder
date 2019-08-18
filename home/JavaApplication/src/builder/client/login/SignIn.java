@@ -3,11 +3,12 @@ package builder.client.login;
 import builder.Backend.data.IconData;
 import builder.Backend.data.IconDataUtil;
 import builder.client.DataWrapper;
+import builder.client.menu.Menu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,21 +25,38 @@ public class SignIn implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // TODO(Edd1e234): Program should try to open database here.
         IconData iconData = new IconData();
         IconDataUtil iconDataUtil = new IconDataUtil();
         iconDataUtil.setEddieData(iconData);
+        System.out.println("Made here");
         window = new DataWrapper(iconData, iconDataUtil);
     }
 
-    public void loginButton() {
+    public void loginButton(ActionEvent event) {
         System.out.println("Login");
 
         IconData userData = new IconData();
 
         if (window.getAllData()
                 .getUserData(username.getText(), password.getText(), userData).isOk()) {
-            System.out.print("User Approved\nUser data:");
-            System.out.println(window.toString());
+            System.out.print("User Approved\nUser data: ");
+            System.out.print(window.getUserData().toString());
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("menu/menu.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                // TODO(Edd1e234): Error message.
+            }
+            Menu menu = loader.getController();
+            menu.setData(this.window);
+
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+            stage.setScene(new Scene(loader.getRoot()));
+            stage.show();
         } else {
             System.out.print("User Denied");
         }
@@ -53,10 +71,9 @@ public class SignIn implements Initializable {
         SignUp signUp = loader.getController();
         signUp.setData(window);
 
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(loader.getRoot()));
         stage.show();
     }
 }

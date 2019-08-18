@@ -32,4 +32,5 @@ public class DataWrapper {
     public void setAllData(IconDataUtil allData) {
         this.allData = allData;
     }
+
 }
