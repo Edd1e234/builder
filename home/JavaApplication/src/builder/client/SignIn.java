@@ -1,9 +1,10 @@
-package builder.client.login;
+package builder.client;
 
 import builder.Backend.data.IconData;
 import builder.Backend.data.IconDataUtil;
-import builder.client.DataWrapper;
 import builder.client.menu.Menu;
+import builder.util.Status;
+import builder.util.StatusMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,5 +76,11 @@ public class SignIn implements Initializable {
 
         stage.setScene(new Scene(loader.getRoot()));
         stage.show();
+    }
+
+    // TODO(Edd1e234): This needs
+    public Status saveData(DataWrapper dataWrapper) {
+        this.window = dataWrapper;
+        return StatusMessage.okStatus();
     }
 }

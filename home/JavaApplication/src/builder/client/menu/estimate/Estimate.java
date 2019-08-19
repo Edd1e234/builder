@@ -1,4 +1,4 @@
-package builder.client.estimate;
+package builder.client.menu.estimate;
 
 import builder.client.DataWrapper;
 

@@ -1,7 +1,7 @@
 package builder.client.menu;
 
 import builder.client.DataWrapper;
-import builder.client.estimate.Estimate;
+import builder.client.menu.estimate.Estimate;
 import builder.util.Status;
 import builder.util.StatusMessage;
 import javafx.event.ActionEvent;
@@ -23,7 +23,7 @@ public class Menu {
 
     public void estimate(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/estimate/estimate.fxml"));
+        loader.setLocation(getClass().getResource("estimate/estimate.fxml"));
 
         try {
             loader.load();

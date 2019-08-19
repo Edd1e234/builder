@@ -1,14 +1,12 @@
-package builder.client.login;
+package builder.client;
 
 import builder.Backend.data.IconData;
-import builder.client.DataWrapper;
 import builder.util.Status;
 import builder.util.StatusMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,7 +23,8 @@ public class SignUp {
     }
 
     public void signUp(ActionEvent event) {
-        if (saveData().isOk()) {
+        Status status = saveData();
+        if (status.isOk()) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("signIn.fxml"));
             try {
@@ -34,11 +33,20 @@ public class SignUp {
                 // TODO(Edd1e234) Error message, CRITICAL ERROR.
             }
 
+            SignIn signIn = loader.getController();
+
+            //TODO(Edd1e234): Once database is going this needs to change. Or make it part of the
+            // same window so the data is updated in real time.
+            // Setting new data.
+            Status signInStatus = signIn.saveData(this.window);
+
             // Using the same scene.
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
             stage.setScene(new Scene(loader.getRoot()));
             stage.show();
+        } else {
+            System.out.println(status.getMessage());
         }
         // TODO(Edd1e234): Need to set up a label that sends an error message.
     }

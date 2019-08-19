@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="builder.client.estimate.Estimate"
+            fx:controller="builder.client.menu.estimate.Estimate"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>
