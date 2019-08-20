@@ -4,4 +4,5 @@ module JavaApplication {
     opens builder.client;
     opens builder.client.menu;
     opens builder.client.menu.estimate;
+    opens builder.client.containers;
 }

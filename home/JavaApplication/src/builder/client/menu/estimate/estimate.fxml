@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="builder.client.menu.estimate.Estimate"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="builder.client.menu.estimate.Estimate">
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane fx:id="lotAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="94.0" prefWidth="721.0">
+               <children>
+                  <TableView fx:id="lotTableView" layoutX="14.0" layoutY="7.0" prefHeight="67.0" prefWidth="590.0">
+                    <columns>
+                      <TableColumn fx:id="typeCol" prefWidth="75.0" text="Type" />
+                      <TableColumn fx:id="superSmallCol" prefWidth="84.0" text="Super-Small" />
+                        <TableColumn fx:id="smallCol" prefWidth="66.0" text="Small" />
+                        <TableColumn fx:id="mediumCol" prefWidth="66.0" text="Medium" />
+                        <TableColumn fx:id="largeCol" prefWidth="66.0" text="Large" />
+                        <TableColumn fx:id="superLargeCol" prefWidth="99.0" text="Super-Large" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="58.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="420.0" prefHeight="58.0" prefWidth="324.0" text="Set Estimate">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="542.0" prefWidth="165.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane layoutY="35.0" prefHeight="507.0" prefWidth="178.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="140.0" text="Lot" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Label layoutY="6.0" prefHeight="29.0" prefWidth="74.0" text="Fields" textFill="#a84747">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
