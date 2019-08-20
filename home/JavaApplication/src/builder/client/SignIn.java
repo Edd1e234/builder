@@ -43,6 +43,8 @@ public class SignIn implements Initializable {
                 .getUserData(username.getText(), password.getText(), userData).isOk()) {
             System.out.print("User Approved\nUser data: ");
             System.out.print(window.getUserData().toString());
+            System.out.println("HDFJDSLKJFDSLK:FJSDLK:FJSD:LKFJS:DLKFJS:DLKFJ:LSDKFJ:SDLKFJ");
+            System.out.println("The amount of fields are " +window.getUserData().getEstimate().getLot().getLotFields().size());
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("menu/menu.fxml"));
@@ -78,7 +80,7 @@ public class SignIn implements Initializable {
         stage.show();
     }
 
-    // TODO(Edd1e234): This needs
+    // TODO(Edd1e234): This needs comments.
     public Status saveData(DataWrapper dataWrapper) {
         this.window = dataWrapper;
         return StatusMessage.okStatus();

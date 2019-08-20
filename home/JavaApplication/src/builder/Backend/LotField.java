@@ -8,6 +8,7 @@ package builder.Backend;
  * @since 2019-8-13
  */
 
+import builder.client.containers.LotContainer;
 import builder.util.Status;
 import builder.util.StatusMessage;
 
@@ -17,21 +18,28 @@ public class LotField {
     public enum Size {
         LARGE, MEDIUM, SMALL, SUPER_LARGE, SUPER_SMALL
     }
-
     Size Size;
+    private int sqf;
     private String fieldName;
     private final double fieldID = Math.random();
-    private double sqfPrice;
-    private double sqfTotalPrice;
-    private int sqf;
-    private double superSmall;
-    private double small;
-    private double medium;
-    private double large;
-    private double superLarge;
+    private double sqfPrice, sqfTotalPrice, superSmall,  small, medium, large, superLarge;
 
     // The amount of money the lot would cost.
     private double lotPrice;
+
+    /**
+     * TODO(Edd1e234): Fill this out.
+     * @param container
+     */
+    public LotField(LotContainer container) {
+        fieldName = container.getType();
+        sqfPrice = Double.parseDouble(container.getSqfPrice());
+        superSmall = Double.parseDouble(container.getSuperSmall());
+        small = Double.parseDouble(container.getSmall());
+        medium = Double.parseDouble(container.getMedium());
+        large = Double.parseDouble(container.getLarge());
+        superLarge = Double.parseDouble(container.getSuperLarge());
+    }
 
     // Default Constructor.
     public LotField() {
@@ -129,7 +137,7 @@ public class LotField {
         return sqf;
     }
 
-    public double SqfPrice() {
+    public double getSqfPrice() {
         return sqfPrice;
     }
 

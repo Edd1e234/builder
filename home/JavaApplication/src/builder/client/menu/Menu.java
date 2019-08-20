@@ -30,10 +30,9 @@ public class Menu {
         } catch (IOException e) {
             // TODO(Edd1e234): Add an error code here.
         }
-
         Estimate estimate = loader.getController();
         estimate.saveData(this.dataWrapper);
-
+        estimate.initializeLot();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         stage.setScene(new Scene(loader.getRoot()));

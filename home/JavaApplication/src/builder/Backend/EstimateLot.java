@@ -15,6 +15,7 @@ import builder.util.StatusMessage;
 import java.util.ArrayList;
 
 public class EstimateLot {
+    // Contains all lotFields associated  with a user.
     private ArrayList<LotField> lotFields = new ArrayList<LotField>();
 
     // Will make a basic lot for the user to set.
@@ -122,6 +123,10 @@ public class EstimateLot {
             fullStringList.append(lot.toString());
         }
         return fullStringList.toString();
+    }
+
+    public void clearFields() {
+        lotFields.clear();
     }
 
     public void write() {

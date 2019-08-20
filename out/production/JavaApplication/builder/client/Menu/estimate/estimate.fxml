@@ -8,20 +8,34 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="builder.client.menu.estimate.Estimate">
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="542.0" prefWidth="684.0" BorderPane.alignment="CENTER">
         <content>
-          <AnchorPane fx:id="lotAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="94.0" prefWidth="721.0">
+          <AnchorPane fx:id="lotAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="721.0">
                <children>
-                  <TableView fx:id="lotTableView" layoutX="14.0" layoutY="7.0" prefHeight="67.0" prefWidth="590.0">
+                  <TableView fx:id="lotTableView" layoutX="14.0" layoutY="7.0" prefHeight="217.0" prefWidth="698.0">
                     <columns>
-                      <TableColumn fx:id="typeCol" prefWidth="75.0" text="Type" />
-                      <TableColumn fx:id="superSmallCol" prefWidth="84.0" text="Super-Small" />
-                        <TableColumn fx:id="smallCol" prefWidth="66.0" text="Small" />
-                        <TableColumn fx:id="mediumCol" prefWidth="66.0" text="Medium" />
-                        <TableColumn fx:id="largeCol" prefWidth="66.0" text="Large" />
-                        <TableColumn fx:id="superLargeCol" prefWidth="99.0" text="Super-Large" />
+                      <TableColumn fx:id="typeCol" prefWidth="182.0" text="Type" />
+                      <TableColumn fx:id="superSmallCol" prefWidth="89.0" text="Super-Small" />
+                        <TableColumn fx:id="smallCol" minWidth="0.0" prefWidth="82.0" text="Small" />
+                        <TableColumn fx:id="mediumCol" prefWidth="83.0" text="Medium" />
+                        <TableColumn fx:id="largeCol" prefWidth="86.0" text="Large" />
+                        <TableColumn fx:id="superLargeCol" prefWidth="89.0" text="Super-Large" />
+                        <TableColumn fx:id="sqfPrice" prefWidth="85.0" text="Sqf-Price" />
                     </columns>
                   </TableView>
+                  <HBox layoutX="29.0" layoutY="236.0" prefHeight="34.0" prefWidth="664.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="typeField" prefHeight="27.0" prefWidth="247.0" promptText="Type" />
+                        <TextField fx:id="superSmallField" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="79.0" promptText="SS" />
+                        <TextField fx:id="smallField" layoutX="177.0" layoutY="10.0" prefHeight="27.0" prefWidth="79.0" promptText="S" />
+                        <TextField fx:id="mediumField" layoutX="256.0" layoutY="10.0" prefHeight="27.0" prefWidth="79.0" promptText="M" />
+                        <TextField fx:id="largeField" layoutX="335.0" layoutY="10.0" prefHeight="27.0" prefWidth="79.0" promptText="L" />
+                        <TextField fx:id="superLargeField" layoutX="414.0" layoutY="10.0" prefHeight="27.0" prefWidth="79.0" promptText="SL" />
+                        <TextField fx:id="sqfPriceField" layoutX="599.0" layoutY="10.0" prefHeight="27.0" prefWidth="79.0" promptText="Sqf" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="addLotField" layoutX="447.0" layoutY="282.0" mnemonicParsing="false" onAction="#addLotField" prefHeight="27.0" prefWidth="123.0" text="Add New Field " />
+                  <Button fx:id="saveLotFields" layoutX="589.0" layoutY="282.0" mnemonicParsing="false" onAction="#saveLotFields" prefHeight="27.0" prefWidth="123.0" text="Save Lot Fields" />
                </children>
             </AnchorPane>
         </content>

@@ -1,13 +1,34 @@
 package builder.client.containers;
 
+import builder.Backend.LotField;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
  * TODO(Edd1e234): Someone please define this.
  */
 public class LotContainer {
-    private SimpleStringProperty type, superSmall, small, medium, large, superLarge, sqfPrice, Sqf;
+    private SimpleStringProperty type, superSmall, small, medium, large, superLarge;
+    private SimpleStringProperty sqf = new SimpleStringProperty("");
+    private SimpleStringProperty sqfPrice = new SimpleStringProperty("");
 
+    /**
+     * Fill this out @Edd1e234.
+     * @param field ...
+     */
+    public LotContainer(LotField field) {
+        this.type = new SimpleStringProperty(field.getFieldName());
+        this.superSmall = new SimpleStringProperty(
+                Double.toString(field.getSizePrice("super small")));
+        this.small = new SimpleStringProperty(Double.toString(field.getSizePrice("small")));
+        this.medium = new SimpleStringProperty(Double.toString(field.getSizePrice("medium")));
+        this.large = new SimpleStringProperty(Double.toString(field.getSizePrice("large")));
+        this.superLarge = new SimpleStringProperty(
+                Double.toString(field.getSizePrice("super large")));
+        this.sqfPrice = new SimpleStringProperty(Double.toString(field.getSqfPrice()));
+        this.superSmall = new SimpleStringProperty(Double.toString(field.getSqf()));
+    }
+
+    // Contains all class variables except sqfPrice.
     public LotContainer(String type, String superSmall, String small, String medium, String large,
                         String superLarge, String sqfPrice, String sqf) {
         this.type = new SimpleStringProperty(type);
@@ -17,7 +38,7 @@ public class LotContainer {
         this.large = new SimpleStringProperty(large);
         this.superLarge = new SimpleStringProperty(superLarge);
         this.sqfPrice = new SimpleStringProperty(sqfPrice);
-        Sqf = new SimpleStringProperty(sqf);
+        this.sqf = new SimpleStringProperty(sqf);
     }
 
     public LotContainer(String type, String superSmall, String small, String medium, String large,
@@ -117,14 +138,14 @@ public class LotContainer {
     }
 
     public String getSqf() {
-        return Sqf.get();
+        return sqf.get();
     }
 
     public SimpleStringProperty sqfProperty() {
-        return Sqf;
+        return sqf;
     }
 
     public void setSqf(String sqf) {
-        this.Sqf.set(sqf);
+        this.sqf.set(sqf);
     }
 }
