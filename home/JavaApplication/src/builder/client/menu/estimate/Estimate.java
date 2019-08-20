@@ -23,6 +23,8 @@ import java.util.ResourceBundle;
 
 public class Estimate implements Initializable {
     private DataWrapper dataWrapper;
+
+    // Lot variables. 
     @FXML private AnchorPane lotAnchorPane;
     @FXML private TableView<LotContainer> lotTableView = new TableView<>();
     @FXML private TableColumn<LotContainer, String> typeCol, superSmallCol, smallCol, mediumCol,
@@ -41,8 +43,6 @@ public class Estimate implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         System.out.print("Initializing....");
     }
-
-
 
     /**
      * TODO(Edd1e234): Fix the table height bug, make it more dynamic.
@@ -66,7 +66,7 @@ public class Estimate implements Initializable {
                 new PropertyValueFactory<LotContainer, String>("superLarge"));
         sqfPrice.setCellValueFactory(new PropertyValueFactory<LotContainer, String>("sqfPrice"));
 
-        System.out.println("Setting up containers");
+        // Setting data.
         lotTableView.setItems(getLotFields());
 
         // Setting textfield.
@@ -79,14 +79,19 @@ public class Estimate implements Initializable {
         sqfPrice.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
+    /**
+     * TODO(Edd1e234): Fill these out.
+     * @return ...
+     */
     private ObservableList<LotContainer> getLotFields() {
-        System.out.print("Inside SetBasicLotTableField");
         ObservableList<LotContainer> lotContainers = FXCollections.observableArrayList();
 
+        // Basic if the user has no data.
         if (dataWrapper.getUserData().getEstimate().getLot().getLotFields().size() == 0 ) {
-            System.out.print("Inside SetBasicLotTableField");
-            lotContainers.add(new LotContainer("Basic", "50", "50", "50",
-                    "50", "50", "50"));
+
+            lotContainers.add(new LotContainer(
+                    "Basic", "50", "50", "50", "50",
+                    "50", "50"));
             return lotContainers;
         }
         for (LotField field : dataWrapper.getUserData().getEstimate().getLot().getLotFields()) {
@@ -118,6 +123,10 @@ public class Estimate implements Initializable {
         }
     }
 
+    /**
+     * TODO(Edd1e234): Fill this out.
+     * @param dataWrapper ...
+     */
     public void saveData(DataWrapper dataWrapper) {
         this.dataWrapper = dataWrapper;
     }
