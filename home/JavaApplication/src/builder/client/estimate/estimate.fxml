@@ -49,7 +49,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="back" onAction="#backButton" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" text="Button" />
+            <Button fx:id="back" onAction="#backButton" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" text="Back" />
          </children>
       </AnchorPane>
    </top>

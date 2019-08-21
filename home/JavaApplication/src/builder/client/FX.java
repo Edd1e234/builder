@@ -22,7 +22,6 @@ public class FX extends Application {
         IconData iconData = new IconData();
         IconDataUtil iconDataUtil = new IconDataUtil();
         iconDataUtil.setEddieData(iconData);
-        System.out.println("Made here");
         DataWrapper dataWrapper = new DataWrapper(iconData, iconDataUtil);
 
         FXMLLoader loader = new FXMLLoader(SignIn.class.getResource("signIn.fxml"));

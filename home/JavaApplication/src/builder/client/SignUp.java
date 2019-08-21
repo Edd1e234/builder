@@ -51,6 +51,10 @@ public class SignUp {
         // TODO(Edd1e234): Need to set up a label that sends an error message.
     }
 
+    public void signIn(ActionEvent event) {
+        signUp(event);
+    }
+
     private Status saveData() {
         IconData iconData = new IconData();
         try {

@@ -42,7 +42,7 @@ public class House {
         Status status = loadLotData();
 
         if (status.isOk()) {
-            System.out.print("Data loaded...");
+            System.out.print("House Page");
         }
     }
 

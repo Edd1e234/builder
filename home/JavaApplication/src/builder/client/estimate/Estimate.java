@@ -41,11 +41,11 @@ public class Estimate implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.print("Initializing....");
+        System.out.println("Estimate Page");
     }
 
     public void backButton(ActionEvent event) {
-        System.out.println("Going back");
+        System.out.println("Menu Page");
 
         FXMLLoader loader = new FXMLLoader(Menu.class.getResource("menu.fxml"));
 
@@ -72,7 +72,6 @@ public class Estimate implements Initializable {
      * @return Status.
      */
     public void initializeLot() {
-        System.out.println("Building Table");
         lotTableView.setEditable(true);
 
         // Setting columns.

@@ -31,7 +31,7 @@ public class SignIn {
 
         if (userData != null) {
             window.setUserData(userData);
-            System.out.print("User Approved\nUser data: ");
+            System.out.println("User Approved!");
 
 
             FXMLLoader loader = new FXMLLoader();
@@ -49,7 +49,7 @@ public class SignIn {
             stage.setScene(new Scene(loader.getRoot()));
             stage.show();
         } else {
-            System.out.print("User Denied");
+            System.out.print("User Denied!");
         }
     }
 
