@@ -220,10 +220,6 @@ public class LotField {
     public double getFullLotPrice() {
         if (sqf != 0 && sqfPrice != 0) {
             sqfTotalPrice = ((double) sqf) * sqfPrice;
-
-            System.out.print("Price per SQF: " + sqfPrice);
-            System.out.print("Sqf: " + sqf);
-            System.out.println("Sqf total price: "+sqfTotalPrice);
             return sqfTotalPrice;
         }
         return 0;
@@ -231,7 +227,6 @@ public class LotField {
 
     public double getFullLotPrice(int sqf) {
         Status status = setSqf(sqf);
-
         return getFullLotPrice();
     }
 

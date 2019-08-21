@@ -93,12 +93,8 @@ public class House {
             if (!sqfTextField.getText().equalsIgnoreCase("")) {
                 System.out.println("Setting sqf price...");
                 try {
-                    int sqf = Integer.parseInt(sqfTextField.getText());
-
-                    double result = field.getFullLotPrice(sqf);
-
-                    price = Double.toString(result);
-                    System.out.println("price is :" + price);
+                    price = Double.toString(
+                            field.getFullLotPrice(Integer.parseInt(sqfTextField.getText())));
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid Argument Error: " + sqfTextField.getText());
                 }
