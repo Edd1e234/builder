@@ -29,7 +29,7 @@ public class LotField {
 
     /**
      * TODO(Edd1e234): Fill this out.
-     * @param container
+     * @param container /...
      */
     public LotField(LotContainer container) {
         fieldName = container.getType();
@@ -75,7 +75,8 @@ public class LotField {
         if (!status.isOk()) {
             return status;
         }
-        if (size.equalsIgnoreCase("super small")) {
+        if (size.equalsIgnoreCase("super small") ||
+                size.equalsIgnoreCase("super-small")) {
             this.superSmall = price;
         } else if (size.equalsIgnoreCase("small")) {
             this.small = price;
@@ -83,7 +84,8 @@ public class LotField {
             this.medium = price;
         } else if (size.equalsIgnoreCase("large")) {
             this.large = price;
-        } else if (size.equalsIgnoreCase("super large")) {
+        } else if (size.equalsIgnoreCase("super large") ||
+                size.equalsIgnoreCase("super-large")) {
             this.superLarge = price;
         } else {
             return StatusMessage.InvalidArgumentError("Not a valid string");
@@ -158,7 +160,8 @@ public class LotField {
      * @return the price.
      */
     public double getSizePrice(String size) {
-        if (size.equalsIgnoreCase("super small")) {
+        if (size.equalsIgnoreCase("super small") ||
+                size.equalsIgnoreCase("super-small")) {
             return superSmall;
         }
         if (size.equalsIgnoreCase("small")) {
@@ -170,7 +173,8 @@ public class LotField {
         if (size.equalsIgnoreCase("large")) {
             return large;
         }
-        if (size.equalsIgnoreCase("super Large")) {
+        if (size.equalsIgnoreCase("super Large") ||
+                size.equalsIgnoreCase("super-large")) {
             return superLarge;
         } else {
             System.out.println("Incorrect input");
@@ -213,24 +217,30 @@ public class LotField {
      * @param result
      * @return
      */
-    public Status getFullLotPrice(double result) {
+    public double getFullLotPrice() {
         if (sqf != 0 && sqfPrice != 0) {
             sqfTotalPrice = ((double) sqf) * sqfPrice;
-            result = sqfTotalPrice;
-            return StatusMessage.okStatus();
+
+            System.out.print("Price per SQF: " + sqfPrice);
+            System.out.print("Sqf: " + sqf);
+            System.out.println("Sqf total price: "+sqfTotalPrice);
+            return sqfTotalPrice;
         }
-        return StatusMessage.InvalidArgumentError("Sqf or SqfPrice is not initialized.");
+        return 0;
     }
 
-    public Status getFullLotPrice(int sqf, double result) {
+    public double getFullLotPrice(int sqf) {
         Status status = setSqf(sqf);
 
-        if (!status.isOk()) {
-            return status;
-        }
-        return getFullLotPrice(result);
+        return getFullLotPrice();
     }
 
+    /**
+     * REfactor this, Java doesn't like output parameters.
+     * @param size
+     * @param result
+     * @return
+     */
     public Status getFullLotPrice(String size, double result) {
         double sizePrice = getSizePrice(size);
         Status status = LotUtil.valueCheck(sizePrice);

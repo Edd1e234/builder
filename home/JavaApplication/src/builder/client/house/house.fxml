@@ -54,7 +54,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="lotFieldComboBox" prefHeight="25.0" prefWidth="134.0" />
+                              <ComboBox fx:id="lotFieldComboBox" onAction="#lotFieldComboBoxAction" prefHeight="25.0" prefWidth="134.0" />
                            </children>
                         </VBox>
                         <VBox layoutX="87.0" layoutY="10.0" prefHeight="64.0" prefWidth="134.0">
@@ -64,7 +64,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="lotSizeComboBox" prefHeight="25.0" prefWidth="134.0" />
+                              <ComboBox fx:id="lotSizeComboBox" onAction="#lotSizeComboBoxAction" prefHeight="25.0" prefWidth="134.0" />
                            </children>
                         </VBox>
                         <VBox layoutX="221.0" layoutY="10.0" prefHeight="61.0" prefWidth="46.0">
@@ -74,10 +74,10 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <TextField promptText="Sqf" />
+                              <TextField fx:id="sqfTextField" promptText="Sqf" />
                            </children>
                         </VBox>
-                        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" text="Set Lot">
+                        <Button mnemonicParsing="false" onAction="#setLotButtonAction" prefHeight="27.0" prefWidth="112.0" text="Set Lot">
                            <HBox.margin>
                               <Insets top="20.0" />
                            </HBox.margin>
@@ -96,12 +96,12 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="85.0" prefWidth="286.0">
                      <children>
-                        <TextField layoutX="14.0" layoutY="35.0" prefHeight="27.0" prefWidth="255.0" text="Lot:" />
+                        <TextField fx:id="lotPriceTextField" layoutX="14.0" layoutY="35.0" prefHeight="27.0" prefWidth="255.0" text="Lot:" />
                      </children>
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <TextField prefHeight="67.0" prefWidth="288.0" text="Full Price:">
+            <TextField fx:id="fullPriceTextField" prefHeight="67.0" prefWidth="288.0" text="Full Price:">
                <font>
                   <Font size="18.0" />
                </font>

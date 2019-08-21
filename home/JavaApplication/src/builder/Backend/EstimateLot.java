@@ -70,14 +70,14 @@ public class EstimateLot {
      * @return Status of the function, if the LotField is not found then a 'NotFoundError' will be
      * thrown.
      */
-    public Status getField(String fieldName, LotField field) {
-        for (LotField field_ : lotFields) {
-            if (fieldName.equals(field_.getFieldName())) {
-                field = field_;
-                return StatusMessage.okStatus();
+    public LotField getField(String fieldName) {
+        for (LotField field : lotFields) {
+            if (fieldName.equals(field.getFieldName())) {
+                System.out.println(field.getFieldName());
+                return field;
             }
         }
-        return StatusMessage.NotFoundError("Field ID not found");
+        return null;
     }
 
     /**
