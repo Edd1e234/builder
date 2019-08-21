@@ -1,6 +1,7 @@
 package builder.client.menu;
 
 import builder.client.DataWrapper;
+import builder.client.SignIn;
 import builder.client.estimate.Estimate;
 import builder.client.house.House;
 import builder.util.Status;
@@ -56,6 +57,28 @@ public class Menu {
         Estimate estimate = loader.getController();
         estimate.saveData(this.dataWrapper);
         estimate.initializeLot();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        stage.setScene(new Scene(loader.getRoot()));
+        stage.show();
+    }
+
+    /**
+     * Fill this out...
+     * @param event ...
+     */
+    public void login(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(SignIn.class.getResource("signIn.fxml"));
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            // Do something here...
+        }
+
+        SignIn signIn = loader.getController();
+        signIn.saveData(this.dataWrapper);
+
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         stage.setScene(new Scene(loader.getRoot()));

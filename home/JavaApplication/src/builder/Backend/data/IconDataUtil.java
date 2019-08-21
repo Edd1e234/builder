@@ -26,15 +26,14 @@ public class IconDataUtil {
      * @param userData Copies user data over.
      * @return Status, If user is not found then a NotFoundError will be returned.
      */
-    public Status getUserData(String username, String password, IconData userData) {
+    public IconData getUserData(String username, String password) {
         for (IconData user : users) {
 
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                userData = user;
-                return StatusMessage.okStatus();
+                return user;
             }
         }
-        return StatusMessage.NotFoundError("User not found or Incorrect login info.");
+        return null;
     }
 
     public void addUser(IconData newUser) {

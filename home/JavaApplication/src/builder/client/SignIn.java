@@ -18,30 +18,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SignIn implements Initializable {
+public class SignIn {
     // This window will contain all the data.
     private DataWrapper window;
     @FXML
     private TextField username, password;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // TODO(Edd1e234): Program should try to open database here.
-        IconData iconData = new IconData();
-        IconDataUtil iconDataUtil = new IconDataUtil();
-        iconDataUtil.setEddieData(iconData);
-        System.out.println("Made here");
-        window = new DataWrapper(iconData, iconDataUtil);
-    }
-
     public void loginButton(ActionEvent event) {
         System.out.println("Login");
 
-        IconData userData = new IconData();
+        IconData userData = window.getAllData().getUserData(username.getText(), password.getText());
 
-        if (window.getAllData()
-                .getUserData(username.getText(), password.getText(), userData).isOk()) {
+        if (userData != null) {
+            window.setUserData(userData);
             System.out.print("User Approved\nUser data: ");
+
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("menu/menu.fxml"));

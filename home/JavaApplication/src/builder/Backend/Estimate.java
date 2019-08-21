@@ -4,6 +4,7 @@ public class Estimate {
     private EstimateLot lot;
 
     public Estimate() {
+        lot = new EstimateLot();
     }
 
     // Setters and getters.

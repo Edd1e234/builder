@@ -80,7 +80,7 @@ public class SignUp {
         }
 
         window.getAllData().addUser(iconData);
-        System.out.println("Data saved");
+        System.out.println("User: " + iconData.toString() + "Saved");
         return StatusMessage.okStatus();
     }
 }
