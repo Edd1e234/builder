@@ -1,14 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="builder.client.house.House"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="builder.client.house.House">
+   <top>
+      <HBox prefHeight="60.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button onAction="#menu" mnemonicParsing="false" text="Back">
+               <HBox.margin>
+                  <Insets left="15.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Label alignment="CENTER" text="Build House">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="98.0" text="Save">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="540.0" prefWidth="641.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="539.0" prefWidth="682.0">
+               <children>
+                  <HBox prefHeight="61.0" prefWidth="682.0" spacing="15.0">
+                     <children>
+                        <Label text="SetLot:   ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="22.0" />
+                           </HBox.margin>
+                        </Label>
+                        <VBox prefHeight="64.0" prefWidth="134.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="134.0" text="Type" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox prefHeight="25.0" prefWidth="134.0" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="87.0" layoutY="10.0" prefHeight="64.0" prefWidth="134.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="134.0" text="Size" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox prefHeight="25.0" prefWidth="134.0" />
+                           </children>
+                        </VBox>
+                        <VBox layoutX="221.0" layoutY="10.0" prefHeight="61.0" prefWidth="46.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="134.0" text="Sqf" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField promptText="Sqf" />
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" text="Set Lot">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <right>
+      <VBox prefHeight="540.0" prefWidth="288.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane prefHeight="473.0" prefWidth="288.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="85.0" prefWidth="286.0">
+                     <children>
+                        <TextField layoutX="14.0" layoutY="35.0" prefHeight="27.0" prefWidth="255.0" text="Lot:" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <TextField prefHeight="67.0" prefWidth="288.0" text="Full Price:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

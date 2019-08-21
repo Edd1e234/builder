@@ -4,6 +4,7 @@ import builder.Backend.LotField;
 import builder.client.DataWrapper;
 import builder.client.containers.LotContainer;
 import builder.client.menu.Menu;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

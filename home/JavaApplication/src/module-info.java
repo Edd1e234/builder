@@ -5,4 +5,5 @@ module JavaApplication {
     opens builder.client.menu;
     opens builder.client.estimate;
     opens builder.client.containers;
+    opens builder.client.house;
 }

@@ -12,7 +12,7 @@
    <top>
       <HBox prefHeight="60.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Back">
+            <Button onAction="#menu" mnemonicParsing="false" text="Back">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
