@@ -135,12 +135,48 @@ public class Estimate implements Initializable {
      * Will Save table to users profile.
      */
     public void saveLotFields() {
+        System.out.println("Saving...");
         dataWrapper.getUserData().getEstimate().getLot().clearFields();
         // Saves data.
         for (LotContainer containers: lotTableView.getItems()) {
-            // Saves lot fields.
-            dataWrapper.getUserData().getEstimate().getLot().addField(new LotField(containers));
+            try {
+                // Saves lot fields.
+                dataWrapper.getUserData().getEstimate().getLot().addField(
+                        new LotField(parseContainer(containers)));
+            } catch (NumberFormatException e) {
+                System.out.println("Could not save " + containers.getType());
+            }
         }
+    }
+
+    /**
+     * Try to stop any fails...
+     * @param container
+     * @return
+     */
+    private LotContainer parseContainer(LotContainer container) {
+        if (container.getSuperSmall().equalsIgnoreCase("")) {
+            container.setSuperSmall("0.0");
+        }
+       if (container.getSmall().equalsIgnoreCase("")) {
+           container.setSmall("0.0");
+       }
+       if (container.getMedium().equalsIgnoreCase("")) {
+           container.setMedium("0.0");
+       }
+       if (container.getLarge().equalsIgnoreCase("")) {
+           container.setLarge("0.0");
+       }
+       if (container.getSuperLarge().equalsIgnoreCase("")) {
+           container.setSuperLarge("0.0");
+       }
+       if (container.getSqfPrice().equalsIgnoreCase("")) {
+           container.setSqfPrice("0.0");
+       }
+       if (container.getSqf().equalsIgnoreCase("")) {
+           container.setSqf("0");
+       }
+       return container;
     }
 
     /**
