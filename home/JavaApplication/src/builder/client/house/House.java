@@ -2,6 +2,7 @@ package builder.client.house;
 
 import builder.Backend.LotField;
 import builder.client.DataWrapper;
+import builder.client.menu.Menu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -20,7 +20,7 @@ public class House {
 
     // Lot fields.
     @FXML TextField sqfTextField;
-    @FXML private ComboBox<String> lotFiledComboBox, lotSizeComboBox;
+    @FXML private ComboBox<String> lotFieldComboBox, lotSizeComboBox;
     private DataWrapper dataWrapper;
 
     public void saveData(DataWrapper dataWrapper) {
@@ -34,7 +34,7 @@ public class House {
             list.add(field.getFieldName());
         }
 
-        lotFiledComboBox.getItems().addAll(list);
+        lotFieldComboBox.getItems().addAll(list);
 
         // Filling out size combo box.
         lotSizeComboBox.getItems().add("Super-Small");

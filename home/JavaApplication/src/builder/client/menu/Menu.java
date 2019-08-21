@@ -31,16 +31,13 @@ public class Menu {
         FXMLLoader loader = new FXMLLoader(House.class.getResource("house.fxml"));
         try {
             loader.load();
-            System.out.println(loader.getController().toString());
         } catch (IOException e) {
             System.out.println("Loader failed to load");
             // TODO(Edd1e234): Theres nothing stopping me.
         }
-        System.out.println("Location is : " + loader.getLocation());
         House house = loader.getController();
-        System.out.println(this.dataWrapper);
-        System.out.println(house);
-        // house.saveData(this.dataWrapper);
+        house.saveData(this.dataWrapper);
+        house.loadData();
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 

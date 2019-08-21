@@ -12,7 +12,7 @@
    <top>
       <HBox prefHeight="60.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Button onAction="#menu" mnemonicParsing="false" text="Back">
+            <Button mnemonicParsing="false" onAction="#menu" text="Back">
                <HBox.margin>
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
@@ -54,7 +54,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ComboBox prefHeight="25.0" prefWidth="134.0" />
+                              <ComboBox fx:id="lotFieldComboBox" prefHeight="25.0" prefWidth="134.0" />
                            </children>
                         </VBox>
                         <VBox layoutX="87.0" layoutY="10.0" prefHeight="64.0" prefWidth="134.0">
@@ -64,7 +64,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ComboBox prefHeight="25.0" prefWidth="134.0" />
+                              <ComboBox fx:id="lotSizeComboBox" prefHeight="25.0" prefWidth="134.0" />
                            </children>
                         </VBox>
                         <VBox layoutX="221.0" layoutY="10.0" prefHeight="61.0" prefWidth="46.0">
