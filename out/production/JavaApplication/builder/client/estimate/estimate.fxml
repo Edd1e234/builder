@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="builder.client.menu.estimate.Estimate">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="builder.client.estimate.Estimate">
    <center>
       <ScrollPane prefHeight="542.0" prefWidth="684.0" BorderPane.alignment="CENTER">
         <content>
@@ -49,6 +49,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <Button fx:id="back" onAction="#backButton" layoutY="16.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" text="Button" />
          </children>
       </AnchorPane>
    </top>

@@ -1,31 +1,30 @@
-package builder.client.menu.estimate;
+package builder.client.estimate;
 
 import builder.Backend.LotField;
 import builder.client.DataWrapper;
 import builder.client.containers.LotContainer;
-import builder.util.Status;
-import builder.util.StatusMessage;
+import builder.client.menu.Menu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Estimate implements Initializable {
     private DataWrapper dataWrapper;
 
-    // Lot variables. 
-    @FXML private AnchorPane lotAnchorPane;
+    // Lot variables.
     @FXML private TableView<LotContainer> lotTableView = new TableView<>();
     @FXML private TableColumn<LotContainer, String> typeCol, superSmallCol, smallCol, mediumCol,
                                                     largeCol, superLargeCol, sqfPrice;
@@ -42,6 +41,26 @@ public class Estimate implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.print("Initializing....");
+    }
+
+    public void backButton(ActionEvent event) {
+        System.out.println("Going back");
+
+        FXMLLoader loader = new FXMLLoader(Menu.class.getResource("menu.fxml"));
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            // TODO(Edd1e234): Error message.
+        }
+
+        Menu menu = loader.getController();
+        menu.setData(this.dataWrapper);
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        stage.setScene(new Scene(loader.getRoot()));
+        stage.show();
     }
 
     /**

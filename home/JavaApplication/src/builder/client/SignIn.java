@@ -42,9 +42,6 @@ public class SignIn implements Initializable {
         if (window.getAllData()
                 .getUserData(username.getText(), password.getText(), userData).isOk()) {
             System.out.print("User Approved\nUser data: ");
-            System.out.print(window.getUserData().toString());
-            System.out.println("HDFJDSLKJFDSLK:FJSDLK:FJSD:LKFJS:DLKFJS:DLKFJ:LSDKFJ:SDLKFJ");
-            System.out.println("The amount of fields are " +window.getUserData().getEstimate().getLot().getLotFields().size());
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("menu/menu.fxml"));

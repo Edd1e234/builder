@@ -1,7 +1,8 @@
 package builder.client.menu;
 
 import builder.client.DataWrapper;
-import builder.client.menu.estimate.Estimate;
+import builder.client.estimate.Estimate;
+import builder.client.house.House;
 import builder.util.Status;
 import builder.util.StatusMessage;
 import javafx.event.ActionEvent;
@@ -21,9 +22,30 @@ public class Menu {
         return StatusMessage.okStatus();
     }
 
+    /**
+     * Fill this out.
+     * @param event ...
+     */
+    public void house(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(House.class.getResource("house.fxml"));
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            // TODO(Edd1e234): Theres nothing stopping me.
+        }
+
+        House house = loader.getController();
+        house.saveData(this.dataWrapper);
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        stage.setScene(new Scene(loader.getRoot()));
+        stage.show();
+    }
+
     public void estimate(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("estimate/estimate.fxml"));
+        FXMLLoader loader = new FXMLLoader(Estimate.class.getResource("estimate.fxml"));
 
         try {
             loader.load();

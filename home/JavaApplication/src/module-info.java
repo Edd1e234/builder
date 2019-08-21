@@ -3,6 +3,6 @@ module JavaApplication {
     requires javafx.controls;
     opens builder.client;
     opens builder.client.menu;
-    opens builder.client.menu.estimate;
+    opens builder.client.estimate;
     opens builder.client.containers;
 }
